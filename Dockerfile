@@ -17,7 +17,9 @@ COPY src/ src/
 RUN ./gradlew bootJar --no-daemon
 
 # 运行阶段
-FROM openjdk:21-jdk-slim
+# openjdk:21-jdk-slim image was removed from Docker Hub, switch to the
+# actively maintained Eclipse Temurin runtime image instead.
+FROM eclipse-temurin:21-jre-jammy
 
 WORKDIR /app
 
