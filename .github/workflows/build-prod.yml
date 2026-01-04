@@ -2,15 +2,14 @@ name: Build and Deploy to Aliyun Container Registry
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 env:
   # 阿里云容器镜像服务配置
-  # REGISTRY: registry.cn-hangzhou.aliyuncs.com
-  REGISTRY: crpi-rnj5shn1s8desszs.cn-heyuan.personal.cr.aliyuncs.com
-  NAMESPACE: mingmad  # 请替换为你的命名空间
+  REGISTRY: ${{ secrets.ALIYUN_REGISTRY }}
+  NAMESPACE: ${{ secrets.ALIYUN_NAMESPACE }}
   IMAGE_NAME: mgo-server
 
 jobs:
